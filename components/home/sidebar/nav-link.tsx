@@ -6,13 +6,21 @@ interface Props {
   name: string
   href: string
   Icon: ElementType
+  isActive: boolean
 }
 
-export default function SidebarNavLink({ name, href, Icon }: Props) {
+export default function NavLink({
+  name,
+  href,
+  Icon,
+  isActive,
+}: Props) {
   return (
     <Button
       variant="ghost"
-      className="justify-normal px-2 dark:hover:bg-zinc-700"
+      className={`justify-normal px-2 py-[0.40rem] dark:hover:bg-zinc-700
+      ${isActive ? "bg-zinc-300 dark:bg-zinc-600" : ""}`}
+      asChild
     >
       <Link
         href={href}
